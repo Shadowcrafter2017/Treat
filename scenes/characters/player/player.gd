@@ -2,13 +2,16 @@ extends CharacterBody2D
 
 @export var move_speed : float = 42.0
 
+var doing_action : bool = false #for disabling input
+
 @onready var sprite : Sprite2D = $Sprite
 @onready var interaction_label : Label = $Interacter/InteractionLabel
 @onready var interactions : Array = []
 
 func _physics_process(_delta) -> void:
-	move_player()
-	do_interaction()
+	if not doing_action:
+		move_player()
+		do_interaction()
 
 func move_player() -> void:
 	var move_direction : Vector2 = Input.get_vector("Move_Left", "Move_Right", "Move_Up", "Move_Down")

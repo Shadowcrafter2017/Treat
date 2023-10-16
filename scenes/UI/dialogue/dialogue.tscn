@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dipeptkpsacmp"]
+[gd_scene load_steps=8 format=3 uid="uid://cjti67x4qfwcb"]
 
-[ext_resource type="Theme" uid="uid://b40eajhhnkh2n" path="res://scenes/UI/DialogueTheme.tres" id="1_wiht3"]
-[ext_resource type="Script" path="res://scenes/UI/DialogueBox.gd" id="2_jiene"]
-[ext_resource type="AudioStream" uid="uid://cmh7q15rq1vbj" path="res://dialogue/voice.wav" id="3_5a2cr"]
+[ext_resource type="Theme" uid="uid://b40eajhhnkh2n" path="res://scenes/UI/dialogue/DialogueTheme.tres" id="1_l2gic"]
+[ext_resource type="Script" path="res://scenes/UI/dialogue/DialogueBox.gd" id="2_tbhqw"]
+[ext_resource type="AudioStream" uid="uid://cmh7q15rq1vbj" path="res://dialogue/voice.wav" id="3_5m338"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_i3tov"]
 
@@ -44,6 +44,7 @@ _data = {
 }
 
 [node name="Dialogue" type="CanvasLayer"]
+follow_viewport_enabled = true
 
 [node name="DialogueBox" type="ColorRect" parent="."]
 anchors_preset = -1
@@ -56,8 +57,8 @@ offset_top = -128.0
 offset_right = 256.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("1_wiht3")
-script = ExtResource("2_jiene")
+theme = ExtResource("1_l2gic")
+script = ExtResource("2_tbhqw")
 dialog_path = "res://dialogue/test.json"
 
 [node name="Name" type="RichTextLabel" parent="DialogueBox"]
@@ -94,7 +95,7 @@ libraries = {
 [node name="Picture" type="Sprite2D" parent="DialogueBox"]
 
 [node name="DialogueSound" type="AudioStreamPlayer2D" parent="DialogueBox"]
-stream = ExtResource("3_5a2cr")
+stream = ExtResource("3_5m338")
 pitch_scale = 1.5
 
 [node name="Timer" type="Timer" parent="DialogueBox"]
