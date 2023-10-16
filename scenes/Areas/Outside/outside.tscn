@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://co6486exrc437"]
+
+[ext_resource type="Texture2D" uid="uid://bxxk5x2skajn0" path="res://icon.svg" id="1_5hqhj"]
+[ext_resource type="PackedScene" uid="uid://d4hrd4ivxi5bw" path="res://scenes/characters/player/player.tscn" id="2_p2wo6"]
+[ext_resource type="PackedScene" uid="uid://jtkxjs6jd0bu" path="res://scenes/Other/interaction_area.tscn" id="3_vlsy2"]
+
+[node name="Outside" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(102, 24)
+texture = ExtResource("1_5hqhj")
+
+[node name="Player" parent="." instance=ExtResource("2_p2wo6")]
+position = Vector2(12, 42)
+
+[node name="Camera" parent="Player" index="2"]
+limit_left = 0
+limit_top = 0
+limit_right = 400
+limit_bottom = 800
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_vlsy2")]
+position = Vector2(34, 14)
+interact_text = "Talk [Z]"
+interact_type = "Dialogue"
+interact_value = "How are you?"
+
+[node name="InteractionArea2" parent="." instance=ExtResource("3_vlsy2")]
+position = Vector2(50, 38)
+interact_text = "Take [Z]"
+interact_type = "Take"
+interact_value = "Apple"
+
+[editable path="Player"]

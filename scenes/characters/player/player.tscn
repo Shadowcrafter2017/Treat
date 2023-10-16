@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4hrd4ivxi5bw"]
+
+[ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_5on7f"]
+[ext_resource type="Texture2D" uid="uid://dsfn036p54kok" path="res://scenes/characters/player/girl.png" id="1_kiutb"]
+[ext_resource type="Theme" uid="uid://b1qm5tra82824" path="res://scenes/UI/InteractTheme.tres" id="3_12tol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_48fps"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vljtr"]
+radius = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_5on7f")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.996026, 1.0031)
+texture = ExtResource("1_kiutb")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_48fps")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Interacter" type="Node2D" parent="."]
+z_index = 1
+
+[node name="InteracterArea" type="Area2D" parent="Interacter"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="Collider" type="CollisionShape2D" parent="Interacter/InteracterArea"]
+shape = SubResource("CircleShape2D_vljtr")
+
+[node name="InteractionLabel" type="Label" parent="Interacter"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_12tol")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="Interacter/InteracterArea" to="." method="_on_interacter_area_area_entered"]
+[connection signal="area_exited" from="Interacter/InteracterArea" to="." method="_on_interacter_area_area_exited"]
