@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m3unffql0j06"
-path="res://.godot/imported/pumpkinbag.png-652c0d0ed16e66e4f6bd0286e9d0c254.ctex"
+uid="uid://5dptb6qvvkyn"
+path="res://.godot/imported/candy.png-f9e019165d899d4b70b24c0faac5b7e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/UI/minigame/pumpkinbag.png"
-dest_files=["res://.godot/imported/pumpkinbag.png-652c0d0ed16e66e4f6bd0286e9d0c254.ctex"]
+source_file="res://scenes/UI/minigame/art/candy.png"
+dest_files=["res://.godot/imported/candy.png-f9e019165d899d4b70b24c0faac5b7e7.ctex"]
 
 [params]
 

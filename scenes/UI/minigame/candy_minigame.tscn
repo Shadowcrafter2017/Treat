@@ -1,16 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1qticv6rsj2i"]
+[gd_scene load_steps=8 format=3 uid="uid://djvky30ky3voj"]
 
-[ext_resource type="Texture2D" uid="uid://m3unffql0j06" path="res://scenes/UI/minigame/pumpkinbag.png" id="1_dfkmh"]
-[ext_resource type="Script" path="res://scenes/UI/minigame/Bag.gd" id="2_j0rld"]
-[ext_resource type="Script" path="res://scenes/UI/minigame/CandySpawner.gd" id="3_1sdjq"]
-[ext_resource type="Texture2D" uid="uid://5dptb6qvvkyn" path="res://scenes/UI/minigame/candy.png" id="3_8y5a6"]
+[ext_resource type="Script" path="res://scenes/UI/minigame/scripts/CandySpawner.gd" id="1_0jyqn"]
+[ext_resource type="Script" path="res://scenes/UI/minigame/scripts/Bag.gd" id="3_6ouik"]
+[ext_resource type="Texture2D" uid="uid://m3unffql0j06" path="res://scenes/UI/minigame/art/pumpkinbag.png" id="4_bd6sp"]
+[ext_resource type="PackedScene" uid="uid://bppug47vuvxx3" path="res://scenes/UI/minigame/candy.tscn" id="4_g3v8n"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l31u1"]
-radius = 15.0
-height = 90.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63l6v"]
+size = Vector2(90, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij0l6"]
-size = Vector2(20, 40)
+[sub_resource type="CircleShape2D" id="CircleShape2D_cj4p1"]
+radius = 40.0
+
+[sub_resource type="Curve2D" id="Curve2D_kkksv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 40, 20, 0, 0, 0, 0, 360, 20)
+}
+point_count = 2
 
 [node name="CandyMinigame" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -50,30 +55,36 @@ polygon = PackedVector2Array(-5, 405, 0, 405, 0, 0, 400, 0, 400, 405, 405, 405, 
 [node name="Bag" type="CharacterBody2D" parent="Frame"]
 position = Vector2(188, 342)
 collision_layer = 8
-collision_mask = 17
 motion_mode = 1
-script = ExtResource("2_j0rld")
+script = ExtResource("3_6ouik")
 
 [node name="Sprite" type="Sprite2D" parent="Frame/Bag"]
+texture_filter = 2
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_dfkmh")
+texture = ExtResource("4_bd6sp")
 
 [node name="Collider" type="CollisionShape2D" parent="Frame/Bag"]
 position = Vector2(-2.5, -35)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_l31u1")
+shape = SubResource("RectangleShape2D_63l6v")
+
+[node name="CollectionArea" type="Area2D" parent="Frame/Bag"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="Collider" type="CollisionShape2D" parent="Frame/Bag/CollectionArea"]
+position = Vector2(0, -25)
+shape = SubResource("CircleShape2D_cj4p1")
+debug_color = Color(0.588235, 0.411765, 0.929412, 0.419608)
 
 [node name="CandySpawner" type="Node2D" parent="Frame"]
-script = ExtResource("3_1sdjq")
+script = ExtResource("1_0jyqn")
+candy_scene = ExtResource("4_g3v8n")
+amount_to_spawn = 50
 
-[node name="Candy" type="RigidBody2D" parent="Frame/CandySpawner"]
-collision_layer = 16
+[node name="SpawnPath" type="Path2D" parent="Frame/CandySpawner"]
+curve = SubResource("Curve2D_kkksv")
 
-[node name="Sprite" type="Sprite2D" parent="Frame/CandySpawner/Candy"]
-modulate = Color(1, 0.0784314, 0.0117647, 1)
-texture = ExtResource("3_8y5a6")
+[node name="Follow" type="PathFollow2D" parent="Frame/CandySpawner/SpawnPath"]
+position = Vector2(40, 20)
 
-[node name="Collider" type="CollisionShape2D" parent="Frame/CandySpawner/Candy"]
-rotation = 0.785398
-shape = SubResource("RectangleShape2D_ij0l6")
-debug_color = Color(0.678431, 0.505882, 0, 0.419608)
+[connection signal="body_entered" from="Frame/Bag/CollectionArea" to="Frame/Bag" method="_on_collection_area_body_entered"]

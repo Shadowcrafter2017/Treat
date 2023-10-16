@@ -14,14 +14,14 @@ var finished : bool = false
 @onready var arrow : Polygon2D = $Arrow
 @onready var sound : AudioStreamPlayer2D = $DialogueSound
 
-func _ready():
+func _ready() -> void:
 	timer.wait_time = text_speed
 	dialog = get_dialog()
 	assert(dialog, "Dialog was not found.")
 	
 	next_phrase()
 
-func _process(_delta):
+func _process(_delta) -> void:
 	arrow.visible = finished
 	if Input.is_action_just_pressed("Action"):
 		if finished:
