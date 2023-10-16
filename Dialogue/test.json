@@ -1,9 +1,9 @@
 [
 	{"Name": "Jimothy", "Text": "Hello, im jimothy the 3rd destroyer of worlds!"},
-	{"Name": "Jimothy", "Text": "There is only 5 other destroyer of worlds, and [b]IM[/b] one of them!"},
+	{"Name": "Jimothy", "Text": "There is only 5 other [tornado radius=5.0 freq=0.5 connected=1]destroyer of worlds[/tornado], and [b]IM[/b] one of them!"},
 	{"Name": "Jimothy", "Text": "Did you know, I like [i]destroying[/i] worlds?"},
 	{"Name": "Jimothy", "Text": "I also like mac-and-cheese."},
 	{"Name": "Jimothy", "Text": "This, is, not, how, you, would, use, commas, unless, it, is, for, emphasis..."},
 	{"Name": "Jimothy", "Text": "See you later!"},
-	{"Name": "Jimothy", "Text": "..........KABOOM!!! MWAHAHAHAHAHAHAHAAAAAAAAAAA!!!!!!!!"},
+	{"Name": "Jimothy", "Text": "..........KABOOM!!! [wave amp=50.0 freq=5.0 connected=1]MWAHAHAHAHAHAHAHAAAAAAAAAAA!!!!!!!![/wave]"},
 ]

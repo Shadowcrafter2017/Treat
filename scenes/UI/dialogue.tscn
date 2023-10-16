@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://h8quvu5wnhva"]
+[gd_scene load_steps=8 format=3 uid="uid://dipeptkpsacmp"]
 
 [ext_resource type="Theme" uid="uid://b40eajhhnkh2n" path="res://scenes/UI/DialogueTheme.tres" id="1_wiht3"]
 [ext_resource type="Script" path="res://scenes/UI/DialogueBox.gd" id="2_jiene"]
-[ext_resource type="AudioStream" uid="uid://cmh7q15rq1vbj" path="res://Dialogue/voice.wav" id="3_v1bvk"]
+[ext_resource type="AudioStream" uid="uid://cmh7q15rq1vbj" path="res://dialogue/voice.wav" id="3_5a2cr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_i3tov"]
 
@@ -58,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_wiht3")
 script = ExtResource("2_jiene")
-dialog_path = "res://Dialogue/test.json"
+dialog_path = "res://dialogue/test.json"
 
 [node name="Name" type="RichTextLabel" parent="DialogueBox"]
 layout_mode = 0
@@ -94,7 +94,7 @@ libraries = {
 [node name="Picture" type="Sprite2D" parent="DialogueBox"]
 
 [node name="DialogueSound" type="AudioStreamPlayer2D" parent="DialogueBox"]
-stream = ExtResource("3_v1bvk")
+stream = ExtResource("3_5a2cr")
 pitch_scale = 1.5
 
 [node name="Timer" type="Timer" parent="DialogueBox"]

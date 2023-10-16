@@ -52,15 +52,16 @@ func next_phrase() -> void:
 	name_text.bbcode_text = dialog[phrase_num]["Name"]
 	dialog_text.bbcode_text = dialog[phrase_num]["Text"]
 	
+	var striped_text = util.strip_bbcode(dialog_text.text)
 	dialog_text.visible_characters = 0
 	
-	while dialog_text.visible_characters < len(dialog_text.text):
+	while dialog_text.visible_characters < len(striped_text):
 		dialog_text.visible_characters += 1
 		
 		sound.pitch_scale = randf_range(1.4,1.6)
 		sound.play()
 		
-		var cur_letter = dialog_text.text[dialog_text.visible_characters - 1]
+		var cur_letter = striped_text[dialog_text.visible_characters - 1]
 		if cur_letter == "." or cur_letter == "," or cur_letter == "!":
 			timer.wait_time = punctuation_speed
 		else:
