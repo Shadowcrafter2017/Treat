@@ -27,8 +27,8 @@ interact_value = "How are you?"
 
 [node name="InteractionArea2" parent="." instance=ExtResource("3_vlsy2")]
 position = Vector2(50, 38)
-interact_text = "Take [Z]"
-interact_type = "Take"
-interact_value = "Apple"
+interact_text = "Knock [Z]"
+interact_type = "Knock"
+interact_value = "30"
 
 [editable path="Player"]

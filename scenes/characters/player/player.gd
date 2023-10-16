@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var candy_minigame : PackedScene
 @export var move_speed : float = 42.0
 
 var doing_action : bool = false #for disabling input
@@ -36,7 +37,18 @@ func do_interaction() -> void:
 		match current_interaction.interact_type:
 			"Dialogue":
 				print("Dialogue: " + current_interaction.interact_value)
-			"Take":
+			"Knock":
+				doing_action = true
+				
+				var minigame : CanvasLayer = candy_minigame.instantiate()
+				owner.add_child(minigame)
+				
+				var candy_spawner : Node2D = get_tree().get_first_node_in_group("CandySpawner")
+				candy_spawner.amount_to_spawn = randi_range(10,30)
+				
+				await minigame.tree_exited
+				doing_action = false
+			"Use":
 				print("Take: " + current_interaction.interact_value)
 
 func _on_interacter_area_area_entered(area) -> void:

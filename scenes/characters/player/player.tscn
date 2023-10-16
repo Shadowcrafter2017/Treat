@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4hrd4ivxi5bw"]
+[gd_scene load_steps=7 format=3 uid="uid://d4hrd4ivxi5bw"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_5on7f"]
 [ext_resource type="Texture2D" uid="uid://dsfn036p54kok" path="res://scenes/characters/player/girl.png" id="1_kiutb"]
+[ext_resource type="PackedScene" uid="uid://djvky30ky3voj" path="res://scenes/UI/minigame/candy_minigame.tscn" id="2_d0ijh"]
 [ext_resource type="Theme" uid="uid://b1qm5tra82824" path="res://scenes/UI/InteractTheme.tres" id="3_12tol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48fps"]
@@ -14,6 +15,7 @@ radius = 16.0
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_5on7f")
+candy_minigame = ExtResource("2_d0ijh")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1

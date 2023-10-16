@@ -18,9 +18,10 @@ _data = {
 point_count = 2
 
 [node name="CandyMinigame" type="CanvasLayer"]
-follow_viewport_enabled = true
 
-[node name="OutlineFrame" type="ColorRect" parent="."]
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,7 +34,22 @@ offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Frame" type="ColorRect" parent="."]
+[node name="OutlineFrame" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.0
+offset_top = -205.0
+offset_right = 205.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Frame" type="ColorRect" parent="Control"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -47,44 +63,50 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.109804, 0.109804, 0.109804, 1)
 
-[node name="Borders" type="StaticBody2D" parent="Frame"]
+[node name="Borders" type="StaticBody2D" parent="Control/Frame"]
 
-[node name="Collider" type="CollisionPolygon2D" parent="Frame/Borders"]
+[node name="Collider" type="CollisionPolygon2D" parent="Control/Frame/Borders"]
 polygon = PackedVector2Array(-5, 405, 0, 405, 0, 0, 400, 0, 400, 405, 405, 405, 405, -5, -5, -5)
 
-[node name="Bag" type="CharacterBody2D" parent="Frame"]
+[node name="Bag" type="CharacterBody2D" parent="Control/Frame"]
 position = Vector2(188, 342)
 collision_layer = 8
 motion_mode = 1
 script = ExtResource("3_6ouik")
 
-[node name="Sprite" type="Sprite2D" parent="Frame/Bag"]
+[node name="Sprite" type="Sprite2D" parent="Control/Frame/Bag"]
 texture_filter = 2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_bd6sp")
 
-[node name="Collider" type="CollisionShape2D" parent="Frame/Bag"]
+[node name="Collider" type="CollisionShape2D" parent="Control/Frame/Bag"]
 position = Vector2(-2.5, -35)
 shape = SubResource("RectangleShape2D_63l6v")
 
-[node name="CollectionArea" type="Area2D" parent="Frame/Bag"]
+[node name="CollectionArea" type="Area2D" parent="Control/Frame/Bag"]
 collision_layer = 0
 collision_mask = 16
 
-[node name="Collider" type="CollisionShape2D" parent="Frame/Bag/CollectionArea"]
+[node name="Collider" type="CollisionShape2D" parent="Control/Frame/Bag/CollectionArea"]
 position = Vector2(0, -25)
 shape = SubResource("CircleShape2D_cj4p1")
 debug_color = Color(0.588235, 0.411765, 0.929412, 0.419608)
 
-[node name="CandySpawner" type="Node2D" parent="Frame"]
+[node name="CandySpawner" type="Node2D" parent="Control/Frame" groups=["CandySpawner"]]
 script = ExtResource("1_0jyqn")
 candy_scene = ExtResource("4_g3v8n")
-amount_to_spawn = 50
+amount_to_spawn = 15
 
-[node name="SpawnPath" type="Path2D" parent="Frame/CandySpawner"]
+[node name="SpawnPath" type="Path2D" parent="Control/Frame/CandySpawner"]
 curve = SubResource("Curve2D_kkksv")
 
-[node name="Follow" type="PathFollow2D" parent="Frame/CandySpawner/SpawnPath"]
+[node name="Follow" type="PathFollow2D" parent="Control/Frame/CandySpawner/SpawnPath"]
 position = Vector2(40, 20)
 
-[connection signal="body_entered" from="Frame/Bag/CollectionArea" to="Frame/Bag" method="_on_collection_area_body_entered"]
+[node name="Timer" type="Timer" parent="Control/Frame/CandySpawner"]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Control/Frame/Bag/CollectionArea" to="Control/Frame/Bag" method="_on_collection_area_body_entered"]
+[connection signal="timeout" from="Control/Frame/CandySpawner/Timer" to="Control/Frame/CandySpawner" method="_on_timer_timeout"]

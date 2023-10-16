@@ -31,3 +31,6 @@ func _ready() -> void:
 			worth = 10
 	
 	linear_velocity = Vector2(randf(), randf()) * randf_range(-300,300)
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void: #mouthfull
+	animator.play("collected")
