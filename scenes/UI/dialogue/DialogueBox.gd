@@ -14,6 +14,8 @@ var finished : bool = false
 @onready var arrow : Polygon2D = $Arrow
 @onready var sound : AudioStreamPlayer2D = $DialogueSound
 
+var delayed_frame : bool = true
+
 func _ready() -> void:
 	timer.wait_time = text_speed
 	dialog = get_dialog()
@@ -22,6 +24,8 @@ func _ready() -> void:
 	next_phrase()
 
 func _process(_delta) -> void:
+	if delayed_frame: delayed_frame = false; return # hacky fix for double action
+	
 	arrow.visible = finished
 	if Input.is_action_just_pressed("Action"):
 		if finished:
@@ -44,7 +48,7 @@ func get_dialog() -> Array:
 
 func next_phrase() -> void:
 	if phrase_num == len(dialog):
-		queue_free()
+		owner.queue_free()
 		return
 	
 	finished = false

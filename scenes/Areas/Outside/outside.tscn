@@ -21,14 +21,13 @@ limit_bottom = 800
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_vlsy2")]
 position = Vector2(34, 14)
-interact_text = "Talk [Z]"
+interact_text = "Talk [space]"
 interact_type = "Dialogue"
-interact_value = "How are you?"
+interact_value = "res://dialogue/test.json"
 
 [node name="InteractionArea2" parent="." instance=ExtResource("3_vlsy2")]
 position = Vector2(50, 38)
-interact_text = "Knock [Z]"
+interact_text = "Knock [space]"
 interact_type = "Knock"
-interact_value = "30"
 
 [editable path="Player"]

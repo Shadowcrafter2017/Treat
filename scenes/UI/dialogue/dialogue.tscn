@@ -44,7 +44,6 @@ _data = {
 }
 
 [node name="Dialogue" type="CanvasLayer"]
-follow_viewport_enabled = true
 
 [node name="DialogueBox" type="ColorRect" parent="."]
 anchors_preset = -1
@@ -59,7 +58,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_l2gic")
 script = ExtResource("2_tbhqw")
-dialog_path = "res://dialogue/test.json"
 
 [node name="Name" type="RichTextLabel" parent="DialogueBox"]
 layout_mode = 0
@@ -99,3 +97,4 @@ stream = ExtResource("3_5m338")
 pitch_scale = 1.5
 
 [node name="Timer" type="Timer" parent="DialogueBox"]
+autostart = true

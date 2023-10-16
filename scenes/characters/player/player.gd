@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var candy_minigame : PackedScene
+@export var dialogue_scene : PackedScene
 @export var move_speed : float = 42.0
 
 var doing_action : bool = false #for disabling input
@@ -36,7 +37,14 @@ func do_interaction() -> void:
 		var current_interaction : Interaction_Area = interactions[0]
 		match current_interaction.interact_type:
 			"Dialogue":
-				print("Dialogue: " + current_interaction.interact_value)
+				doing_action = true
+				
+				var dialog_box : CanvasLayer = dialogue_scene.instantiate()
+				dialog_box.get_child(0).dialog_path = current_interaction.interact_value
+				owner.add_child(dialog_box)
+				
+				await dialog_box.tree_exited
+				doing_action = false
 			"Knock":
 				doing_action = true
 				

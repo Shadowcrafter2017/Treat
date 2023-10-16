@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [editor]
 
-movie_writer/movie_file="G:/Vids/show.avi"
+movie_writer/movie_file="G:/Vids/show2.avi"
 
 [input]
 
