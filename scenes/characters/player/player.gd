@@ -8,6 +8,7 @@ var doing_action : bool = false #for disabling input
 
 @onready var sprite : Sprite2D = $Sprite
 @onready var interaction_label : Label = $Interacter/InteractionLabel
+@onready var animator : AnimationPlayer = $Animator
 @onready var interactions : Array = []
 
 func _physics_process(_delta) -> void:
@@ -23,7 +24,14 @@ func move_player() -> void:
 	elif move_direction.x < 0 and not sprite.flip_h:
 		sprite.flip_h = true
 	
+	
 	velocity = move_speed * move_direction
+	
+	if velocity != Vector2.ZERO and not animator.is_playing():
+		animator.play("walk")
+	elif velocity == Vector2.ZERO and animator.is_playing():
+		animator.stop()
+	
 	move_and_slide()
 
 func update_interactions() -> void:

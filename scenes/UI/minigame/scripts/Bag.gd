@@ -1,14 +1,16 @@
 extends CharacterBody2D
 
 @export var move_speed : float = 300.0
+@export var acceleration : float = 30.0
 
 var candy_count : int = 0
 
 func _physics_process(_delta) -> void:
-	var mouse_pos : Vector2 = get_global_mouse_position()
-	var direction : Vector2 = (mouse_pos - global_position).normalized() * Vector2(1, 0)
+	var direction : Vector2 = Vector2(Input.get_axis("Move_Left", "Move_Right"), 0)
 	
-	velocity = direction * move_speed
+	velocity.x = move_toward(velocity.x, move_speed * direction.x, acceleration)
+	velocity.y = move_toward(velocity.y, move_speed * direction.y, acceleration)
+	
 	move_and_slide()
 
 func _on_collection_area_body_entered(body : candy) -> void:

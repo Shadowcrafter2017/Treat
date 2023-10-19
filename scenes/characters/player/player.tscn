@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4hrd4ivxi5bw"]
+[gd_scene load_steps=11 format=3 uid="uid://d4hrd4ivxi5bw"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_5on7f"]
 [ext_resource type="Texture2D" uid="uid://dsfn036p54kok" path="res://scenes/characters/player/girl.png" id="1_kiutb"]
@@ -12,6 +12,68 @@ size = Vector2(16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_vljtr"]
 radius = 16.0
 
+[sub_resource type="Animation" id="Animation_gtvqa"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 2.00001, 1, 2.00001, 1),
+"update": 0,
+"values": [0.0, 0.261799, 0.0, -0.261799, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 2.00001, 1, 2.00001, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, -3), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_r8p11"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1w5nf"]
+_data = {
+"RESET": SubResource("Animation_r8p11"),
+"walk": SubResource("Animation_gtvqa")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 motion_mode = 1
@@ -21,7 +83,6 @@ dialogue_scene = ExtResource("3_4jidk")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.996026, 1.0031)
 texture = ExtResource("1_kiutb")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
@@ -59,6 +120,11 @@ grow_vertical = 2
 theme = ExtResource("3_12tol")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1w5nf")
+}
 
 [connection signal="area_entered" from="Interacter/InteracterArea" to="." method="_on_interacter_area_area_entered"]
 [connection signal="area_exited" from="Interacter/InteracterArea" to="." method="_on_interacter_area_area_exited"]
