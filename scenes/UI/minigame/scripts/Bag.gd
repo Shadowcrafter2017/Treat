@@ -9,7 +9,6 @@ func _physics_process(_delta) -> void:
 	var direction : Vector2 = Vector2(Input.get_axis("Move_Left", "Move_Right"), 0)
 	
 	velocity.x = move_toward(velocity.x, move_speed * direction.x, acceleration)
-	velocity.y = move_toward(velocity.y, move_speed * direction.y, acceleration)
 	
 	move_and_slide()
 

@@ -30,7 +30,8 @@ func _ready() -> void:
 			sprite.modulate = Color.PURPLE
 			worth = 10
 	
-	linear_velocity = Vector2(randf(), randf()) * randf_range(-300,300)
+	linear_velocity = Vector2(randf(), randf()) * randf_range(-300.0,300.0)
+	angular_velocity = randf_range(-5.0,5.0)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void: #mouthfull
 	animator.play("collected")
