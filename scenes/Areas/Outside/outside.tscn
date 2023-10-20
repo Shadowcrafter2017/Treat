@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://co6486exrc437"]
+[gd_scene load_steps=7 format=3 uid="uid://co6486exrc437"]
 
 [ext_resource type="Texture2D" uid="uid://bxxk5x2skajn0" path="res://icon.svg" id="1_5hqhj"]
+[ext_resource type="PackedScene" uid="uid://b0cwsadt76cf3" path="res://scenes/UI/HUD/hud.tscn" id="1_ja63c"]
 [ext_resource type="PackedScene" uid="uid://d4hrd4ivxi5bw" path="res://scenes/characters/player/player.tscn" id="2_p2wo6"]
 [ext_resource type="PackedScene" uid="uid://jtkxjs6jd0bu" path="res://scenes/Other/interaction_area.tscn" id="3_vlsy2"]
 [ext_resource type="Texture2D" uid="uid://beuijxpgjjra1" path="res://art/dummy.png" id="4_fqnyt"]
 [ext_resource type="Texture2D" uid="uid://cox8eniwp40c2" path="res://art/door.png" id="5_0fhg4"]
 
 [node name="Outside" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_ja63c")]
 
 [node name="Icon" type="Sprite2D" parent="."]
 visible = false

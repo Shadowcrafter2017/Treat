@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://djvky30ky3voj"]
+[gd_scene load_steps=10 format=3 uid="uid://djvky30ky3voj"]
 
 [ext_resource type="Script" path="res://scenes/UI/minigame/scripts/CandySpawner.gd" id="1_0jyqn"]
 [ext_resource type="Script" path="res://scenes/UI/minigame/scripts/Bag.gd" id="3_6ouik"]
+[ext_resource type="AudioStream" uid="uid://66c33urlavx4" path="res://scenes/UI/minigame/sounds/collect.wav" id="3_kyt8g"]
+[ext_resource type="AudioStream" uid="uid://brp051c1ym56y" path="res://scenes/UI/minigame/sounds/badcollect.wav" id="4_4t3yp"]
 [ext_resource type="Texture2D" uid="uid://m3unffql0j06" path="res://scenes/UI/minigame/art/pumpkinbag.png" id="4_bd6sp"]
 [ext_resource type="PackedScene" uid="uid://bppug47vuvxx3" path="res://scenes/UI/minigame/candy.tscn" id="4_g3v8n"]
 
@@ -91,6 +93,14 @@ collision_mask = 16
 position = Vector2(0, -25)
 shape = SubResource("CircleShape2D_cj4p1")
 debug_color = Color(0.588235, 0.411765, 0.929412, 0.419608)
+
+[node name="CollectSound" type="AudioStreamPlayer2D" parent="Control/Frame/Bag"]
+position = Vector2(-564, -466)
+stream = ExtResource("3_kyt8g")
+
+[node name="BadCollectSound" type="AudioStreamPlayer2D" parent="Control/Frame/Bag"]
+position = Vector2(-564, -466)
+stream = ExtResource("4_4t3yp")
 
 [node name="CandySpawner" type="Node2D" parent="Control/Frame" groups=["CandySpawner"]]
 script = ExtResource("1_0jyqn")

@@ -4,13 +4,40 @@
 [ext_resource type="Texture2D" uid="uid://dsfn036p54kok" path="res://scenes/characters/player/girl.png" id="1_kiutb"]
 [ext_resource type="PackedScene" uid="uid://djvky30ky3voj" path="res://scenes/UI/minigame/candy_minigame.tscn" id="2_d0ijh"]
 [ext_resource type="PackedScene" uid="uid://cjti67x4qfwcb" path="res://scenes/UI/dialogue/dialogue.tscn" id="3_4jidk"]
-[ext_resource type="Theme" uid="uid://b1qm5tra82824" path="res://scenes/UI/InteractTheme.tres" id="3_12tol"]
+[ext_resource type="Theme" uid="uid://b1qm5tra82824" path="res://scenes/Other/InteractTheme.tres" id="5_kjysk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48fps"]
 size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vljtr"]
 radius = 16.0
+
+[sub_resource type="Animation" id="Animation_r8p11"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_gtvqa"]
 resource_name = "walk"
@@ -39,33 +66,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 2.00001, 1, 2.00001, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 0), Vector2(0, -3), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_r8p11"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1w5nf"]
@@ -117,7 +117,7 @@ offset_right = 20.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("3_12tol")
+theme = ExtResource("5_kjysk")
 horizontal_alignment = 1
 vertical_alignment = 1
 
