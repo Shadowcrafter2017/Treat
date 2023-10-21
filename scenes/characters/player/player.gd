@@ -46,6 +46,7 @@ func do_interaction() -> void:
 		match current_interaction.interact_type:
 			"Dialogue":
 				doing_action = true
+				animator.stop()
 				
 				var dialog_box : CanvasLayer = dialogue_scene.instantiate()
 				dialog_box.get_child(0).dialog_path = current_interaction.interact_value
@@ -55,6 +56,7 @@ func do_interaction() -> void:
 				doing_action = false
 			"Knock":
 				doing_action = true
+				animator.stop()
 				
 				var minigame : CanvasLayer = candy_minigame.instantiate()
 				owner.add_child(minigame)

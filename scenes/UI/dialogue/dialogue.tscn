@@ -57,17 +57,20 @@ offset_right = 256.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_l2gic")
+color = Color(0.509804, 0.352941, 0.223529, 1)
 script = ExtResource("2_tbhqw")
 
 [node name="Name" type="RichTextLabel" parent="DialogueBox"]
 layout_mode = 0
 offset_right = 512.0
 offset_bottom = 22.0
+theme_override_font_sizes/normal_font_size = 0
 bbcode_enabled = true
 text = "Name goes here"
 scroll_active = false
 
 [node name="Text" type="RichTextLabel" parent="DialogueBox"]
+clip_contents = false
 layout_mode = 0
 offset_top = 22.0
 offset_right = 512.0

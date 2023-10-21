@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://tunn5war4oy6"]
+
+[ext_resource type="Texture2D" uid="uid://cmkahlqelaxlj" path="res://scenes/decorations/bg.png" id="1_pujfd"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(1250, 1250)
+
+[node name="Bg" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_pujfd")

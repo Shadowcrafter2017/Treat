@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://csqcnioju0lf5"]
+
+[ext_resource type="PackedScene" uid="uid://jtkxjs6jd0bu" path="res://scenes/Other/interaction_area.tscn" id="1_0osxc"]
+[ext_resource type="Texture2D" uid="uid://ciyq2bhwipnmu" path="res://scenes/decorations/house.png" id="1_1naj7"]
+[ext_resource type="Texture2D" uid="uid://cox8eniwp40c2" path="res://scenes/decorations/door.png" id="2_y0gdn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gnex"]
+size = Vector2(116, 47)
+
+[node name="House" type="Node2D"]
+
+[node name="StaticBody" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="StaticBody"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1naj7")
+region_rect = Rect2(0, 0, 150, 50)
+
+[node name="Collider" type="CollisionShape2D" parent="StaticBody"]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_1gnex")
+debug_color = Color(0.321569, 0.615686, 0.317647, 0.419608)
+
+[node name="Door" parent="StaticBody" instance=ExtResource("1_0osxc")]
+position = Vector2(0, 14)
+interact_text = "Knock [space]"
+interact_type = "Knock"
+
+[node name="Sprite" parent="StaticBody/Door" index="0"]
+texture = ExtResource("2_y0gdn")
+
+[editable path="StaticBody/Door"]

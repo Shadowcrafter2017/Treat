@@ -13,7 +13,7 @@ func _ready() -> void:
 	match candy_type:
 		0: # red
 			sprite.modulate = Color.RED
-			worth = -1
+			worth = randi_range(-1, -15)
 		1: # orange
 			sprite.modulate = Color.ORANGE
 			worth = 1
