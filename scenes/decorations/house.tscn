@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://csqcnioju0lf5"]
+[gd_scene load_steps=10 format=3 uid="uid://csqcnioju0lf5"]
 
 [ext_resource type="PackedScene" uid="uid://jtkxjs6jd0bu" path="res://scenes/Other/interaction_area.tscn" id="1_0osxc"]
 [ext_resource type="Texture2D" uid="uid://bvkumuaihnog8" path="res://scenes/decorations/art/house1.png" id="1_dq3nc"]
@@ -32,22 +32,18 @@ animations = [{
 "speed": 0.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gnex"]
-size = Vector2(150, 43)
-
 [node name="House" type="Node2D"]
 script = ExtResource("1_gcy2i")
 
 [node name="StaticBody" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="StaticBody"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_xqvp0")
 
-[node name="Collider" type="CollisionShape2D" parent="StaticBody"]
-position = Vector2(0, -3.5)
-shape = SubResource("RectangleShape2D_1gnex")
-debug_color = Color(0.321569, 0.615686, 0.317647, 0.419608)
+[node name="Collider" type="CollisionPolygon2D" parent="StaticBody"]
+polygon = PackedVector2Array(75, 18, -75, 18, -75, 2, 0, -25, 75, 1)
 
 [node name="Door" parent="StaticBody" instance=ExtResource("1_0osxc")]
 position = Vector2(0, 14)

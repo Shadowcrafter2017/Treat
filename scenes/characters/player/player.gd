@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var candy_minigame : PackedScene
 @export var dialogue_scene : PackedScene
-@export var move_speed : float = 42.0
+@export var move_speed : float = 42.0 #42.0
 
 var doing_action : bool = false #for disabling input
 
