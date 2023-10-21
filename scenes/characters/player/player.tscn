@@ -92,7 +92,8 @@ shape = SubResource("RectangleShape2D_48fps")
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(6, 6)
 limit_smoothed = true
-position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
 [node name="Interacter" type="Node2D" parent="."]
 z_index = 1

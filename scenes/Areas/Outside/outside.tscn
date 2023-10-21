@@ -1,21 +1,196 @@
-[gd_scene load_steps=7 format=3 uid="uid://co6486exrc437"]
+[gd_scene load_steps=8 format=3 uid="uid://co6486exrc437"]
 
 [ext_resource type="PackedScene" uid="uid://b0cwsadt76cf3" path="res://scenes/UI/HUD/hud.tscn" id="1_ja63c"]
 [ext_resource type="PackedScene" uid="uid://tunn5war4oy6" path="res://scenes/decorations/parallax_background.tscn" id="1_p0mmn"]
 [ext_resource type="PackedScene" uid="uid://d4hrd4ivxi5bw" path="res://scenes/characters/player/player.tscn" id="2_p2wo6"]
 [ext_resource type="PackedScene" uid="uid://jtkxjs6jd0bu" path="res://scenes/Other/interaction_area.tscn" id="3_vlsy2"]
+[ext_resource type="Texture2D" uid="uid://b8cbk5q8fpuur" path="res://scenes/decorations/art/road.png" id="3_yok8o"]
 [ext_resource type="Texture2D" uid="uid://beuijxpgjjra1" path="res://art/dummy.png" id="4_fqnyt"]
 [ext_resource type="PackedScene" uid="uid://csqcnioju0lf5" path="res://scenes/decorations/house.tscn" id="7_0ewl3"]
 
 [node name="Outside" type="Node2D"]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_p0mmn")]
-visible = false
 
 [node name="HUD" parent="." instance=ExtResource("1_ja63c")]
 
-[node name="House" parent="." instance=ExtResource("7_0ewl3")]
-position = Vector2(283, 49)
+[node name="Roads" type="Node2D" parent="."]
+
+[node name="Road" type="Sprite2D" parent="Roads"]
+position = Vector2(0, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road2" type="Sprite2D" parent="Roads"]
+position = Vector2(150, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road3" type="Sprite2D" parent="Roads"]
+position = Vector2(300, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road4" type="Sprite2D" parent="Roads"]
+position = Vector2(450, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road5" type="Sprite2D" parent="Roads"]
+position = Vector2(600, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road6" type="Sprite2D" parent="Roads"]
+position = Vector2(750, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road7" type="Sprite2D" parent="Roads"]
+position = Vector2(-150, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road8" type="Sprite2D" parent="Roads"]
+position = Vector2(-300, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road9" type="Sprite2D" parent="Roads"]
+position = Vector2(-450, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road10" type="Sprite2D" parent="Roads"]
+position = Vector2(-600, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road11" type="Sprite2D" parent="Roads"]
+position = Vector2(0, 139)
+rotation = 1.57079
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Roads2" type="Node2D" parent="."]
+position = Vector2(0, 104)
+
+[node name="Road" type="Sprite2D" parent="Roads2"]
+position = Vector2(0, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road2" type="Sprite2D" parent="Roads2"]
+position = Vector2(150, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road3" type="Sprite2D" parent="Roads2"]
+position = Vector2(300, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road4" type="Sprite2D" parent="Roads2"]
+position = Vector2(450, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road5" type="Sprite2D" parent="Roads2"]
+position = Vector2(600, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road6" type="Sprite2D" parent="Roads2"]
+position = Vector2(750, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road7" type="Sprite2D" parent="Roads2"]
+position = Vector2(-150, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road8" type="Sprite2D" parent="Roads2"]
+position = Vector2(-300, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road9" type="Sprite2D" parent="Roads2"]
+position = Vector2(-450, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road10" type="Sprite2D" parent="Roads2"]
+position = Vector2(-600, 50)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Road11" type="Sprite2D" parent="Roads2"]
+position = Vector2(0, 139)
+rotation = 1.57079
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_yok8o")
+
+[node name="Houses" type="Node2D" parent="."]
+
+[node name="House1" parent="Houses" instance=ExtResource("7_0ewl3")]
+
+[node name="House2" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(150, 0)
+
+[node name="House3" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(300, 0)
+
+[node name="House4" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(450, 0)
+
+[node name="House5" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(600, 0)
+
+[node name="House6" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(750, 0)
+
+[node name="House7" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(-150, 0)
+
+[node name="House8" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(-300, 0)
+
+[node name="House9" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(-450, 0)
+
+[node name="House10" parent="Houses" instance=ExtResource("7_0ewl3")]
+position = Vector2(-600, 0)
+
+[node name="Houses2" type="Node2D" parent="."]
+position = Vector2(0, 98)
+
+[node name="House2" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(150, 0)
+
+[node name="House3" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(300, 0)
+
+[node name="House4" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(450, 0)
+
+[node name="House5" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(600, 0)
+
+[node name="House6" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(750, 0)
+
+[node name="House7" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(-150, 0)
+
+[node name="House8" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(-300, 0)
+
+[node name="House9" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(-450, 0)
+
+[node name="House10" parent="Houses2" instance=ExtResource("7_0ewl3")]
+position = Vector2(-600, 0)
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_vlsy2")]
 position = Vector2(97, 18)
