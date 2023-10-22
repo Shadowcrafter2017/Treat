@@ -86,7 +86,6 @@ scroll_active = false
 
 [node name="Arrow" type="Polygon2D" parent="DialogueBox"]
 position = Vector2(18, 0)
-color = Color(0, 0, 0, 1)
 texture = SubResource("CanvasTexture_i3tov")
 polygon = PackedVector2Array(476, 110.4, 490, 110.4, 483, 126.4)
 uv = PackedVector2Array(476, 110.4, 490, 110.4, 483, 126.4)

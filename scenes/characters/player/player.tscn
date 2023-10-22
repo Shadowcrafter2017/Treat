@@ -89,7 +89,7 @@ _data = {
 "walk": SubResource("Animation_gtvqa")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_5on7f")

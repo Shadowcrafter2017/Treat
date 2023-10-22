@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://co6486exrc437"]
+[gd_scene load_steps=10 format=3 uid="uid://co6486exrc437"]
 
 [ext_resource type="PackedScene" uid="uid://b0cwsadt76cf3" path="res://scenes/UI/HUD/hud.tscn" id="1_ja63c"]
 [ext_resource type="PackedScene" uid="uid://tunn5war4oy6" path="res://scenes/decorations/parallax_background.tscn" id="1_p0mmn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://beuijxpgjjra1" path="res://art/dummy.png" id="4_fqnyt"]
 [ext_resource type="PackedScene" uid="uid://csqcnioju0lf5" path="res://scenes/decorations/house.tscn" id="7_0ewl3"]
 [ext_resource type="Texture2D" uid="uid://lkdr6jkb6me8" path="res://scenes/decorations/art/fencepiece.png" id="8_osilp"]
+[ext_resource type="PackedScene" uid="uid://drco5fw323k2q" path="res://scenes/Areas/car_transition.tscn" id="10_f32t2"]
 
 [node name="Outside" type="Node2D"]
 
@@ -235,6 +236,8 @@ limit_left = -675
 limit_top = -25
 limit_right = 825
 limit_bottom = 180
+
+[node name="CarTransition" parent="." instance=ExtResource("10_f32t2")]
 
 [editable path="Houses2/House2"]
 [editable path="Houses2/House2/StaticBody/Door"]

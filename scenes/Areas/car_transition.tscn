@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://drco5fw323k2q"]
+
+[ext_resource type="Script" path="res://scenes/Areas/car_transition.gd" id="1_gwehe"]
+[ext_resource type="PackedScene" uid="uid://cjti67x4qfwcb" path="res://scenes/UI/dialogue/dialogue.tscn" id="1_pk6xk"]
+
+[node name="CarTransition" type="Node2D"]
+script = ExtResource("1_gwehe")
+
+[node name="Dialogue" parent="." instance=ExtResource("1_pk6xk")]
+
+[node name="DialogueBox" parent="Dialogue" index="0"]
+dialog_path = "res://dialogue/cartransition.json"
+
+[connection signal="tree_exited" from="Dialogue" to="." method="_on_dialogue_tree_exited"]
+
+[editable path="Dialogue"]
