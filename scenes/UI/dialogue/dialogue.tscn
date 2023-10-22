@@ -57,7 +57,7 @@ offset_right = 256.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("1_l2gic")
-color = Color(0.282353, 0.396078, 0.552941, 1)
+color = Color(0.768627, 0.380392, 0.247059, 1)
 script = ExtResource("2_tbhqw")
 
 [node name="Name" type="RichTextLabel" parent="DialogueBox"]

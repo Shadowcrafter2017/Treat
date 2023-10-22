@@ -1,16 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://drco5fw323k2q"]
+[gd_scene load_steps=6 format=3 uid="uid://drco5fw323k2q"]
 
 [ext_resource type="Script" path="res://scenes/Areas/car_transition.gd" id="1_gwehe"]
 [ext_resource type="PackedScene" uid="uid://cjti67x4qfwcb" path="res://scenes/UI/dialogue/dialogue.tscn" id="1_pk6xk"]
+[ext_resource type="Texture2D" uid="uid://crk2lgvgj5x35" path="res://scenes/Areas/car.png" id="2_r5ghn"]
+
+[sub_resource type="Animation" id="Animation_4dtog"]
+resource_name = "driveaway"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3, 3),
+"update": 0,
+"values": [0.0, 350.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_54jef"]
+_data = {
+"driveaway": SubResource("Animation_4dtog")
+}
 
 [node name="CarTransition" type="Node2D"]
 script = ExtResource("1_gwehe")
+
+[node name="Car" type="Sprite2D" parent="."]
+position = Vector2(350, 0)
+texture = ExtResource("2_r5ghn")
+
+[node name="Animator" type="AnimationPlayer" parent="Car"]
+libraries = {
+"": SubResource("AnimationLibrary_54jef")
+}
 
 [node name="Dialogue" parent="." instance=ExtResource("1_pk6xk")]
 
 [node name="DialogueBox" parent="Dialogue" index="0"]
 dialog_path = "res://dialogue/cartransition.json"
 
+[connection signal="tree_exited" from="Car" to="." method="_on_car_tree_exited"]
 [connection signal="tree_exited" from="Dialogue" to="." method="_on_dialogue_tree_exited"]
 
 [editable path="Dialogue"]

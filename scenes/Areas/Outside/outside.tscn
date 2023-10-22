@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://co6486exrc437"]
+[gd_scene load_steps=11 format=3 uid="uid://co6486exrc437"]
 
 [ext_resource type="PackedScene" uid="uid://b0cwsadt76cf3" path="res://scenes/UI/HUD/hud.tscn" id="1_ja63c"]
 [ext_resource type="PackedScene" uid="uid://tunn5war4oy6" path="res://scenes/decorations/parallax_background.tscn" id="1_p0mmn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://beuijxpgjjra1" path="res://art/dummy.png" id="4_fqnyt"]
 [ext_resource type="PackedScene" uid="uid://csqcnioju0lf5" path="res://scenes/decorations/house.tscn" id="7_0ewl3"]
 [ext_resource type="Texture2D" uid="uid://lkdr6jkb6me8" path="res://scenes/decorations/art/fencepiece.png" id="8_osilp"]
+[ext_resource type="AudioStream" uid="uid://poty7li5lmfl" path="res://scenes/Areas/Outside/MadDash2.wav" id="10_7hkic"]
 [ext_resource type="PackedScene" uid="uid://drco5fw323k2q" path="res://scenes/Areas/car_transition.tscn" id="10_f32t2"]
 
 [node name="Outside" type="Node2D"]
@@ -141,6 +142,11 @@ rotation = 1.57079
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_yok8o")
 
+[node name="CarTransition" parent="." instance=ExtResource("10_f32t2")]
+
+[node name="Car" parent="CarTransition" index="0"]
+position = Vector2(0, 45)
+
 [node name="Houses" type="Node2D" parent="."]
 
 [node name="House1" parent="Houses" instance=ExtResource("7_0ewl3")]
@@ -237,8 +243,16 @@ limit_top = -25
 limit_right = 825
 limit_bottom = 180
 
-[node name="CarTransition" parent="." instance=ExtResource("10_f32t2")]
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7hkic")
+volume_db = -8.0
+autoplay = true
+max_distance = 5000.0
+attenuation = 1e-05
+panning_strength = 0.0
 
+[editable path="CarTransition"]
+[editable path="CarTransition/Dialogue"]
 [editable path="Houses2/House2"]
 [editable path="Houses2/House2/StaticBody/Door"]
 [editable path="Houses2/House7"]

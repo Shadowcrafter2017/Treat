@@ -15,7 +15,7 @@ func _process(_delta) -> void:
 		if time_left == '60':
 			clock_label.text = "6:00 PM"
 			await get_tree().create_timer(3).timeout
-			get_tree().change_scene_to_file("res://scenes/UI/menus/game_over_screen.tscn")
+			SceneTransition.change_scene("res://scenes/UI/menus/game_over_screen.tscn")
 		else:
 			clock_label.text = "5:%s PM" % time_left
 

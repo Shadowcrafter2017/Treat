@@ -1,6 +1,8 @@
 [
 	{"Name": "MOM", "Text": "OK, we're here honey."},
+	{"Name": "MOM", "Text": "I have heard this neighborhood gives out [shake rate=20.0 level=5 connected=1]ALOT[/shake] of [rainbow freq=1.0 sat=0.8 val=0.8]candy.[/rainbow]"},
+	{"Name": "MOM", "Text": "But remeber to avoid any [rainbow freq=0.0 sat=1 val=1]red[/rainbow] candy, I heard it tastes [shake rate=20.0 level=5 connected=1]terrible...[/shake]"},
 	{"Name": "MOM", "Text": "You have until [wave amp=25.0 freq=5.0 connected=1]6:00 PM[/wave] before I will pick you up."},
 	{"Name": "MOM", "Text": "In the meantime, I'm going to drive around for a few."},
-	{"Name": "MOM", "Text": "Have fun!"},
+	{"Name": "MOM", "Text": "Have fun, and good luck!"},
 ]

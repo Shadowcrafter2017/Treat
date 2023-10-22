@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://clq64yiqnmirf"]
+[gd_scene load_steps=6 format=3 uid="uid://clq64yiqnmirf"]
 
 [ext_resource type="Theme" uid="uid://j00nq8ysovek" path="res://scenes/UI/menus/new_theme.tres" id="1_b7ypp"]
 [ext_resource type="Script" path="res://scenes/UI/menus/main_menu/main_menu.gd" id="2_028s4"]
 [ext_resource type="FontFile" uid="uid://bn1awrj0x3ahm" path="res://scenes/UI/menus/main_menu/Creepster-Regular.ttf" id="3_d3ets"]
+[ext_resource type="Texture2D" uid="uid://m3unffql0j06" path="res://scenes/UI/minigame/art/pumpkinbag.png" id="4_f8558"]
+[ext_resource type="Texture2D" uid="uid://5dptb6qvvkyn" path="res://scenes/UI/minigame/art/candy.png" id="5_y226y"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -39,7 +41,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("3_d3ets")
 theme_override_font_sizes/font_size = 64
-text = "TRICK"
+text = "TREAT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -50,13 +52,40 @@ size_flags_vertical = 8
 [node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
+action_mode = 0
 text = "Start
 "
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
+action_mode = 0
 text = "Quit"
+
+[node name="Pumpkinbag" type="Sprite2D" parent="."]
+position = Vector2(800, 500)
+scale = Vector2(2, 2)
+texture = ExtResource("4_f8558")
+
+[node name="Candy" type="Sprite2D" parent="."]
+modulate = Color(0.14902, 1, 0, 1)
+position = Vector2(866, 287)
+scale = Vector2(2, 2)
+texture = ExtResource("5_y226y")
+
+[node name="Candy2" type="Sprite2D" parent="."]
+modulate = Color(0, 0.0313726, 1, 1)
+position = Vector2(695, 171)
+rotation = 2.17643
+scale = Vector2(2, 2)
+texture = ExtResource("5_y226y")
+
+[node name="Candy3" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(887, 83)
+rotation = 2.64766
+scale = Vector2(2, 2)
+texture = ExtResource("5_y226y")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

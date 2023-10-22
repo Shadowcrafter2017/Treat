@@ -92,7 +92,7 @@ func do_interaction() -> void:
 				update_costume()
 			"Leave":
 				if Global.costumed == true:
-					get_tree().change_scene_to_file("res://scenes/Areas/Outside/outside.tscn")
+					SceneTransition.change_scene("res://scenes/Areas/Outside/outside.tscn")
 				else:
 					doing_action = true
 					animator.stop()

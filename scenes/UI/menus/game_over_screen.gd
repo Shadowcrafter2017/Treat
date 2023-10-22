@@ -10,4 +10,4 @@ func _ready() -> void:
 func _on_play_button_pressed():
 	Global.costumed = false
 	Global.candy_collected = 0
-	get_tree().change_scene_to_file("res://scenes/UI/menus/main_menu/main_menu.tscn")
+	SceneTransition.change_scene("res://scenes/UI/menus/main_menu/main_menu.tscn")
