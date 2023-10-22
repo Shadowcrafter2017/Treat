@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://cngx2887b0jpg"]
+
+[ext_resource type="PackedScene" uid="uid://cjti67x4qfwcb" path="res://scenes/UI/dialogue/dialogue.tscn" id="1_4thhr"]
+[ext_resource type="Texture2D" uid="uid://dryk10lynlx8a" path="res://scenes/Areas/room/room.png" id="1_bbotf"]
+[ext_resource type="Script" path="res://scenes/Areas/room/room.gd" id="1_xwfg7"]
+[ext_resource type="PackedScene" uid="uid://d4hrd4ivxi5bw" path="res://scenes/characters/player/player.tscn" id="2_cc32v"]
+[ext_resource type="Texture2D" uid="uid://cox8eniwp40c2" path="res://scenes/decorations/art/door.png" id="3_6fm0u"]
+[ext_resource type="PackedScene" uid="uid://jtkxjs6jd0bu" path="res://scenes/Other/interaction_area.tscn" id="4_rstw8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eurvh"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b0lbi"]
+radius = 5.0
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_xwfg7")
+
+[node name="Dialogue" parent="." instance=ExtResource("1_4thhr")]
+
+[node name="DialogueBox" parent="Dialogue" index="0"]
+dialog_path = "res://dialogue/getdressed.json"
+
+[node name="Room" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_bbotf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-39, -37, 38, -37, 38, 38, -39, 38, -49, 38, -49, 46, 47, 46, 47, -48, -48, -48, -40, 38)
+
+[node name="Door" type="Sprite2D" parent="."]
+position = Vector2(0, -40)
+texture = ExtResource("3_6fm0u")
+
+[node name="InteractionArea" parent="Door" instance=ExtResource("4_rstw8")]
+interact_text = "Leave [SPACE]"
+interact_type = "Leave"
+interact_value = "res://dialogue/leave.json"
+
+[node name="Collider" parent="Door/InteractionArea" index="1"]
+shape = SubResource("CircleShape2D_eurvh")
+
+[node name="Player" parent="." instance=ExtResource("2_cc32v")]
+position = Vector2(-32, -24)
+
+[node name="Camera" parent="Player" index="2"]
+visible = false
+enabled = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+
+[node name="InteractionArea" parent="." instance=ExtResource("4_rstw8")]
+position = Vector2(20, -37)
+interact_text = "Use [SPACE]"
+interact_type = "Costume"
+
+[node name="Collider" parent="InteractionArea" index="1"]
+shape = SubResource("CircleShape2D_b0lbi")
+
+[connection signal="tree_exited" from="Dialogue" to="." method="_on_dialogue_tree_exited"]
+
+[editable path="Dialogue"]
+[editable path="Door/InteractionArea"]
+[editable path="Player"]
+[editable path="InteractionArea"]

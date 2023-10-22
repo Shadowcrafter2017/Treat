@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://j00nq8ysovek"]
+
+[ext_resource type="FontFile" uid="uid://c25bchqjfwum1" path="res://scenes/UI/HUD/Andy Bold.ttf" id="1_xyk4c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phih0"]
+bg_color = Color(1, 0.509804, 0.270588, 1)
+border_width_left = 4
+border_width_bottom = 4
+border_color = Color(0.890196, 0.458824, 0.0705882, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h63q"]
+bg_color = Color(1, 0.509804, 0.270588, 1)
+border_width_left = 4
+border_width_bottom = 4
+border_color = Color(0.890196, 0.458824, 0.0705882, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l2o7o"]
+bg_color = Color(0.886275, 0.364706, 0, 1)
+border_width_left = 4
+border_width_bottom = 4
+border_color = Color(0.952941, 0.498039, 0.0941176, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jodjd"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[resource]
+default_font = ExtResource("1_xyk4c")
+Button/colors/font_focus_color = Color(1, 1, 0, 1)
+Button/colors/font_hover_color = Color(1, 1, 0, 1)
+Button/colors/font_outline_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 24
+Button/styles/focus = SubResource("StyleBoxFlat_phih0")
+Button/styles/hover = SubResource("StyleBoxFlat_3h63q")
+Button/styles/normal = SubResource("StyleBoxFlat_l2o7o")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 15
+MarginContainer/constants/margin_right = 15
+MarginContainer/constants/margin_top = 15
+Panel/styles/panel = SubResource("StyleBoxFlat_jodjd")
+VBoxContainer/constants/separation = 16

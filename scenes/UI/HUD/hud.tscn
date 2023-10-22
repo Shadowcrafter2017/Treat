@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0cwsadt76cf3"]
+[gd_scene load_steps=6 format=3 uid="uid://b0cwsadt76cf3"]
 
 [ext_resource type="Script" path="res://scenes/UI/HUD/hud.gd" id="1_6jvbr"]
 [ext_resource type="Theme" uid="uid://d3pah4v30ywhv" path="res://scenes/UI/HUD/hud.tres" id="1_qntp8"]
 [ext_resource type="PackedScene" uid="uid://dpek3pvuw68qw" path="res://scenes/UI/HUD/increment.tscn" id="2_8ufc2"]
 [ext_resource type="Texture2D" uid="uid://5dptb6qvvkyn" path="res://scenes/UI/minigame/art/candy.png" id="2_b1etf"]
+[ext_resource type="Texture2D" uid="uid://byhussjbh7sxw" path="res://scenes/UI/HUD/clock.png" id="4_pktsp"]
 
 [node name="HUD" type="CanvasLayer" groups=["HUD"]]
 script = ExtResource("1_6jvbr")
@@ -36,6 +37,24 @@ size_flags_horizontal = 3
 [node name="CandyContainer" type="VBoxContainer" parent="Control/Margin/Split"]
 layout_mode = 2
 alignment = 2
+
+[node name="Clock" type="TextureRect" parent="Control/Margin/Split/CandyContainer"]
+layout_mode = 2
+texture = ExtResource("4_pktsp")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Margin/Split/CandyContainer/Clock"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = " 5:00 PM"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/Margin/Split/CandyContainer"]
 layout_mode = 2

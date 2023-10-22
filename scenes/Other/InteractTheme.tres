@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://b1qm5tra82824"]
 
-[ext_resource type="FontFile" uid="uid://c25bchqjfwum1" path="res://scenes/UI/HUD/Andy Bold.ttf" id="1_opjlh"]
+[ext_resource type="FontFile" uid="uid://dqnbmy1usjpta" path="res://scenes/UI/m5x7.ttf" id="1_2ssi5"]
 
 [resource]
 Label/font_sizes/font_size = 16
-Label/fonts/font = ExtResource("1_opjlh")
+Label/fonts/font = ExtResource("1_2ssi5")

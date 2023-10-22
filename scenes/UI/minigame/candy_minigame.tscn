@@ -66,6 +66,8 @@ grow_vertical = 2
 color = Color(0.109804, 0.109804, 0.109804, 1)
 
 [node name="Borders" type="StaticBody2D" parent="Control/Frame"]
+collision_layer = 32
+collision_mask = 32
 
 [node name="Collider" type="CollisionPolygon2D" parent="Control/Frame/Borders"]
 polygon = PackedVector2Array(-5, 405, 0, 405, 0, 0, 400, 0, 400, 405, 405, 405, 405, -5, -5, -5)
@@ -73,6 +75,7 @@ polygon = PackedVector2Array(-5, 405, 0, 405, 0, 0, 400, 0, 400, 405, 405, 405, 
 [node name="Bag" type="CharacterBody2D" parent="Control/Frame"]
 position = Vector2(188, 342)
 collision_layer = 8
+collision_mask = 32
 motion_mode = 1
 script = ExtResource("3_6ouik")
 

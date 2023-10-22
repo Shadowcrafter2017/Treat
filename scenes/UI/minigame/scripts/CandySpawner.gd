@@ -11,7 +11,7 @@ func _on_timer_timeout():
 		amount_to_spawn -= 1
 		spawn_candy()
 		
-		timer.wait_time = randf_range(0.0, 1.0)
+		timer.wait_time = randf_range(0.0, 0.5)
 		timer.start()
 	if amount_to_spawn == 0:
 		await get_tree().create_timer(1.5).timeout

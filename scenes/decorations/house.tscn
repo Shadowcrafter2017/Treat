@@ -47,7 +47,7 @@ polygon = PackedVector2Array(75, 18, -75, 18, -75, 2, 0, -25, 75, 1)
 
 [node name="Door" parent="StaticBody" instance=ExtResource("1_0osxc")]
 position = Vector2(0, 14)
-interact_text = "Knock [space]"
+interact_text = "Knock [SPACE]"
 interact_type = "Knock"
 
 [node name="Sprite" parent="StaticBody/Door" index="0"]

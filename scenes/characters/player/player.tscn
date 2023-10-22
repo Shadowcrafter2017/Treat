@@ -1,10 +1,25 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4hrd4ivxi5bw"]
+[gd_scene load_steps=13 format=3 uid="uid://d4hrd4ivxi5bw"]
 
 [ext_resource type="Script" path="res://scenes/characters/player/player.gd" id="1_5on7f"]
 [ext_resource type="Texture2D" uid="uid://dsfn036p54kok" path="res://scenes/characters/player/girl.png" id="1_kiutb"]
 [ext_resource type="PackedScene" uid="uid://djvky30ky3voj" path="res://scenes/UI/minigame/candy_minigame.tscn" id="2_d0ijh"]
 [ext_resource type="PackedScene" uid="uid://cjti67x4qfwcb" path="res://scenes/UI/dialogue/dialogue.tscn" id="3_4jidk"]
 [ext_resource type="Theme" uid="uid://b1qm5tra82824" path="res://scenes/Other/InteractTheme.tres" id="5_kjysk"]
+[ext_resource type="Texture2D" uid="uid://vq64f5o3dd8p" path="res://scenes/characters/player/pumpkingirl.png" id="5_qlssf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxduq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kiutb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qlssf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48fps"]
 size = Vector2(8, 8)
@@ -81,9 +96,9 @@ script = ExtResource("1_5on7f")
 candy_minigame = ExtResource("2_d0ijh")
 dialogue_scene = ExtResource("3_4jidk")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_kiutb")
+sprite_frames = SubResource("SpriteFrames_qxduq")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
@@ -112,11 +127,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_right = 20.0
+offset_left = -29.0
+offset_top = 10.0
+offset_right = 30.0
 offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 8
 theme = ExtResource("5_kjysk")
 text = "
 "

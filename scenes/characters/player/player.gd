@@ -6,10 +6,13 @@ extends CharacterBody2D
 
 var doing_action : bool = false #for disabling input
 
-@onready var sprite : Sprite2D = $Sprite
+@onready var sprite : AnimatedSprite2D = $Sprite
 @onready var interaction_label : Label = $Interacter/InteractionLabel
 @onready var animator : AnimationPlayer = $Animator
 @onready var interactions : Array = []
+
+func _ready() -> void:
+	update_costume()
 
 func _physics_process(_delta) -> void:
 	if not doing_action:
@@ -34,6 +37,12 @@ func move_player() -> void:
 	
 	move_and_slide()
 
+func update_costume() -> void:
+	if Global.costumed == true:
+		sprite.frame = 1
+	else:
+		sprite.frame = 0
+
 func update_interactions() -> void:
 	if interactions:
 		interaction_label.text = interactions[0].interact_text
@@ -55,19 +64,45 @@ func do_interaction() -> void:
 				await dialog_box.tree_exited
 				doing_action = false
 			"Knock":
-				doing_action = true
-				animator.stop()
-				
-				var minigame : CanvasLayer = candy_minigame.instantiate()
-				owner.add_child(minigame)
-				
-				var candy_spawner : Node2D = get_tree().get_first_node_in_group("CandySpawner")
-				candy_spawner.amount_to_spawn = randi_range(10,30)
-				
-				await minigame.tree_exited
-				doing_action = false
-			"Use":
-				print("Take: " + current_interaction.interact_value)
+				if current_interaction.interact_value == "knocked":
+					doing_action = true
+					animator.stop()
+					
+					var dialog_box : CanvasLayer = dialogue_scene.instantiate()
+					dialog_box.get_child(0).dialog_path = "res://dialogue/alreadyknocked.json"
+					owner.add_child(dialog_box)
+					
+					await dialog_box.tree_exited
+					doing_action = false
+				else:
+					current_interaction.interact_value = "knocked"
+					doing_action = true
+					animator.stop()
+					
+					var minigame : CanvasLayer = candy_minigame.instantiate()
+					owner.add_child(minigame)
+					
+					var candy_spawner : Node2D = get_tree().get_first_node_in_group("CandySpawner")
+					candy_spawner.amount_to_spawn = randi_range(10,30)
+					
+					await minigame.tree_exited
+					doing_action = false
+			"Costume":
+				Global.costumed = true
+				update_costume()
+			"Leave":
+				if Global.costumed == true:
+					get_tree().change_scene_to_file("res://scenes/Areas/Outside/outside.tscn")
+				else:
+					doing_action = true
+					animator.stop()
+					
+					var dialog_box : CanvasLayer = dialogue_scene.instantiate()
+					dialog_box.get_child(0).dialog_path = current_interaction.interact_value
+					owner.add_child(dialog_box)
+					
+					await dialog_box.tree_exited
+					doing_action = false
 
 func _on_interacter_area_area_entered(area) -> void:
 	interactions.insert(0, area)
